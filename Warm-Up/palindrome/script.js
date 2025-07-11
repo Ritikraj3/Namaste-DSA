@@ -15,5 +15,5 @@ const isPalindrome = function(x) {
 
 console.log(isPalindrome(5));
 
-// let n = 123
-// console.log(n.toString().length);
+let n = 123
+console.log(n.toString().split("").reverse().join("")===n.toString());
