@@ -1,18 +1,18 @@
-let arr = [2,4,1];
 
 function sellBuy(arr) {
+    debugger
     let min = arr[0]
     let max = -1
-    let x = 0
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] < min) {
-            x = i
             min = arr[i]
-        }else if (arr[i] - min > max) {
+        }
+        if (arr[i] - min > max) {
             max = arr[i] - min;
         }
     }
-
-    return max;
+    
+    return max; 
 }
-console.log(sellBuy(arr));
+let arr = [2,4,1,8,10];
+console.log(sellBuy(arr)); 
