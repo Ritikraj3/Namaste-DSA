@@ -36,7 +36,7 @@ function megre(l1, l2) {
 
 
 //Another Approach
-function mergeTwoSortedArray(l1, l2) {
+function mergeTwoSortedList(l1, l2) {
     
     let dummy = new ListNode()
     let curr = dummy
