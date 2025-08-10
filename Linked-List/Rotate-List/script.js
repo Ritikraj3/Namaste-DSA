@@ -32,3 +32,33 @@ function rotateList (head , k) {
 
     return newHead
 }
+
+
+//Approach 2 ----
+
+function rotateList (head , k) {
+    
+    let length = 1
+    let curr = head
+
+    while(curr.next) {
+        curr = curr.next
+        length++
+    }
+    curr.next = head
+
+    k = k % length
+    let breakPosition = length - k -1
+
+    let newCurr = head
+    for(let i = 0; i < breakPosition; i++) {
+        newCurr = newCurr.next
+    }
+
+    let newHead = newCurr.next
+    newCurr.next = null
+
+    return newHead
+
+
+}
