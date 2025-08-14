@@ -1,5 +1,5 @@
 
-// Optimized Approach 3:----
+// Optimized Approach 2:----
 function maxFreqSum3(s) {
     let map = {}
     for (let i = 0; i < s.length; i++) {
@@ -20,32 +20,6 @@ function maxFreqSum3(s) {
     }
     return maxVowel + maxCons
 }
-
-
-
-// Approach 2 :-----
-
-function maxFreqSum2(s){
-    let map = {}
-    for (let i = 0; i < s.length; i++) {
-        map[s[i]] = !map[s[i]] ? 1 : ++map[s[i]]
-    }
-
-    let vowels = ["a", "e", "i", "o", "u"]
-    let maxVowel = 0
-    let maxCons = 0
-    let mapKeys = Object.keys(map)
-
-    for (let i = 0; i < mapKeys.length; i++) {
-        if(vowels.includes(mapKeys[i])){
-            maxVowel = Math.max(map[mapKeys[i]], maxVowel)
-        } else {
-            maxCons = Math.max(map[mapKeys[i]], maxCons)
-        }
-    }
-    return maxVowel + maxCons
-}
-
 
 
 // Approach 1: ------
