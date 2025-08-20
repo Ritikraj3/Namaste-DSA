@@ -4,6 +4,7 @@ class MyStack {
     }
 
     push(val) {
+        //In the beginning my stack is empty so value & minimum value will be same 
         if(this.s.length === 0) {
             this.s.push([val,val])
         } else {
