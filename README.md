@@ -68,7 +68,7 @@ If you're on a similar journey or have suggestions, feel free to:
 
 - 💬 Open an **Issue**  
 - ⚒️ Create a **Pull Request**
-- 👋 Connect on [LinkedIn](https://www.linkedin.com/in/your-link)
+- 👋 Connect on [LinkedIn](https://www.linkedin.com/in/ritik5776/)
 
 ---
 
