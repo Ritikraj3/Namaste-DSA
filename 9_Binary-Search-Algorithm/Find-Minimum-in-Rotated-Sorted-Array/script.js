@@ -25,3 +25,4 @@ function findMin (arr) {
 console.log(findMin([4,5,6,7,0,1,2]));
 console.log(findMin([4,5,6,7,8,9,0,1,2]));
 console.log(findMin([7,2,3,4,5,6]));
+console.log(findMin([7,8,2,3,4,5,6]));
