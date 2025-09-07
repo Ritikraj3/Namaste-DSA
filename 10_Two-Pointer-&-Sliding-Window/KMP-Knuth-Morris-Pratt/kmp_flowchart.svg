@@ -1,0 +1,79 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <style>
+    .box { fill: #f0f8ff; stroke: #0b63a6; stroke-width:2; rx:10; }
+    .title { font: bold 20px sans-serif; fill:#0b63a6; }
+    .text { font: 14px sans-serif; fill: #000; }
+    .small { font: 12px sans-serif; fill: #000; }
+    .arrow { stroke: #0b63a6; stroke-width:2; fill:none; marker-end: url(#arrowhead); }
+    .note { font: italic 13px sans-serif; fill: #333; }
+    .lps-box { fill:#fff4e6; stroke:#b35600; stroke-width:2; rx:6; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0b63a6" />
+    </marker>
+  </defs>
+
+  <!-- Header -->
+  <text x="40" y="40" class="title">KMP Algorithm — Visual Flowchart (Beginner Friendly)</text>
+  <text x="40" y="65" class="small">Two major phases: (1) Build LPS array, (2) Search using LPS. Follow arrows for flow.</text>
+
+  <!-- Build LPS box -->
+  <rect x="40" y="100" width="520" height="220" class="box" />
+  <text x="60" y="130" class="text">Phase 1: Build LPS (Longest Prefix Suffix)</text>
+  <text x="60" y="155" class="small">Goal: For each position j in needle, LPS[j] = length of longest prefix that's also suffix for needle[0..j]</text>
+
+  <rect x="70" y="180" width="480" height="110" class="lps-box" />
+  <text x="90" y="205" class="small">Initialize:</text>
+  <text x="90" y="225" class="small">i = 0, j = 1, lps[0] = 0</text>
+  <text x="90" y="245" class="small">Loop while j &lt; m (needle length):</text>
+  <text x="90" y="265" class="small">- if needle[i] == needle[j] → lps[j] = i+1; i++; j++</text>
+  <text x="90" y="285" class="small">- else if i == 0 → lps[j] = 0; j++</text>
+  <text x="90" y="305" class="small">- else → i = lps[i-1] (jump back)</text>
+
+  <!-- Arrow to search phase -->
+  <path d="M 300 340 L 300 380" class="arrow" />
+  <text x="310" y="360" class="note">LPS built ➜ move to search</text>
+
+  <!-- Search box -->
+  <rect x="40" y="400" width="1120" height="360" class="box" />
+  <text x="60" y="435" class="text">Phase 2: Search (use haystack and needle)</text>
+
+  <!-- Search inner boxes -->
+  <rect x="80" y="470" width="520" height="260" class="lps-box" />
+  <text x="100" y="500" class="small">Initialize: i = 0 (haystack), j = 0 (needle)</text>
+  <text x="100" y="520" class="small">While i &lt; n (haystack length):</text>
+  <text x="100" y="540" class="small">1) If haystack[i] == needle[j] → i++; j++;</text>
+  <text x="100" y="560" class="small">   → If j == m → MATCH found at index (i - m)</text>
+  <text x="100" y="580" class="small">2) Else (mismatch):</text>
+  <text x="120" y="600" class="small">- If j == 0 → i++ (move in haystack)</text>
+  <text x="120" y="620" class="small">- Else → j = lps[j-1] (use LPS to skip)</text>
+
+  <!-- Visual of pointer movements -->
+  <text x="640" y="500" class="text">Pointer Visualization</text>
+  <text x="640" y="525" class="small">haystack:  h  e  l  l  o  ...</text>
+  <text x="640" y="545" class="small">indices:    0  1  2  3  4</text>
+  <text x="640" y="565" class="small">needle:         l  l</text>
+  <text x="640" y="585" class="small">indices:         0  1</text>
+
+  <!-- arrows showing match path -->
+  <path d="M 740 600 L 900 600" class="arrow" />
+  <text x="760" y="590" class="small">Match → i++ , j++</text>
+
+  <!-- arrows showing mismatch path -->
+  <path d="M 740 640 L 900 640" class="arrow" />
+  <text x="760" y="630" class="small">Mismatch → if j&gt;0 : j = lps[j-1] (jump back)</text>
+  <text x="760" y="650" class="small">Else: i++ (advance haystack)</text>
+
+  <!-- LPS quick example box -->
+  <rect x="640" y="680" width="520" height="80" class="lps-box" />
+  <text x="660" y="705" class="small">Example: needle = "ababaca"</text>
+  <text x="660" y="725" class="small">LPS = [0,0,1,2,3,0,1]</text>
+  <text x="660" y="745" class="small">Interpretation: at j=4 (char 'a'), there's a prefix "aba" that is also a suffix → length 3</text>
+
+  <!-- Footer tips -->
+  <text x="40" y="790" class="note">Tips: KMP runs in O(n + m). LPS helps you avoid rechecking characters — it's the 'memory' that makes KMP efficient.</text>
+  <text x="40" y="815" class="note">Try dry-running with small strings on paper: write haystack and needle, mark i &amp; j, and update using rules above.</text>
+</svg>
